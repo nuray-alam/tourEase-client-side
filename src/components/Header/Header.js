@@ -6,13 +6,7 @@ import './Header.css'
 
 const Header = () => {
 
-    const { user, logOut, isLoading } = useAuth();
-    console.log('from header isLoading:');
-    if (isLoading) {
-        return <div>
-            <h1>Loading</h1>
-        </div>
-    }
+    const { user, logOut } = useAuth();
     return (
         <Navbar className="navbar" bg="" expand="lg" sticky="top">
             <Container className="w-75mx-auto">
@@ -29,7 +23,7 @@ const Header = () => {
                     </Nav>
                     {/* conditional rendering user name */}
                     {
-                        user.email && <span className="user-name me-2 fw-bold" style={{ color: "#7AA0CE" }}>{user.displayName}</span>
+                        user.email && <span className="user-name me-2 fw-bold" style={{ color: "#7AA0CE" }}>{user.displayName ? user.displayName : ''}</span>
                     }
                     {/* conditional rendering for login and logout button */}
                     {user.email ? <button onClick={logOut} className="btn btn-warning">Log Out</button>
