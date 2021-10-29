@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 const AddPackages = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
 
         const newPackage = data;
@@ -16,7 +16,12 @@ const AddPackages = () => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log("add a new package:", result)
+                if (result.acknowledged) {
+
+                    alert("New package uploaded successfully");
+                    reset();
+
+                }
             })
     };
     return (
