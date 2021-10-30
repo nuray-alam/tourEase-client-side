@@ -12,12 +12,17 @@ const Package = (props) => {
     }
     return (
         <Col className="">
-            <div className="package text-center py-2 px-3 card h-100">
-                <img src={imgUrl} className="img-fluid" alt="" />
-                <h4 className="text-success mt-1">{name}</h4>
-                <small>{days} day</small> <small>Location: {location}</small>
-                <p>{description}</p>
-                <button onClick={() => handleOrderButton(_id)} className="btn btn-outline-primary">Order Now</button>
+            <div className="package text-center py-2 px-3 card h-100 d-flex flex-column justify-content-between">
+
+                <div>
+                    <img src={imgUrl} className="img-fluid" alt="" />
+                    <h4 className="text-success mt-1">{name}</h4>
+                    <small>{days} day</small> <small>Location: {location}</small>
+                    <p>{description}</p>
+                </div>
+                <div>
+                    <button onClick={() => handleOrderButton(_id)} className="btn btn-primary">Order Now</button>
+                </div>
             </div>
         </Col>
     );

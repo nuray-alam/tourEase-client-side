@@ -15,9 +15,9 @@ const Header = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto fs-5">
                         <NavLink as={Link} to="/home" activeStyle={{ fontWeight: "bold", color: "#91BFFF" }} className="text-decoration-none header-link me-3">Home</NavLink>
-                        <NavLink as={Link} to="/myOrders" activeStyle={{ fontWeight: "bold", color: "#91BFFF" }} className="text-decoration-none header-link me-3">My Orders</NavLink>
-                        <NavLink as={Link} to="/manageOrders" activeStyle={{ fontWeight: "bold", color: "#91BFFF" }} className="text-decoration-none header-link me-3">Manage Orders</NavLink>
-                        <NavLink as={Link} to="/addPackages" activeStyle={{ fontWeight: "bold", color: "#91BFFF" }} className="text-decoration-none header-link me-3">Add Packages</NavLink>
+                        {user.email && <NavLink as={Link} to="/myOrders" activeStyle={{ fontWeight: "bold", color: "#91BFFF" }} className="text-decoration-none header-link me-3">My Orders</NavLink>}
+                        {user.email && <NavLink as={Link} to="/manageOrders" activeStyle={{ fontWeight: "bold", color: "#91BFFF" }} className="text-decoration-none header-link me-3">Manage Orders</NavLink>}
+                        {user.email && <NavLink as={Link} to="/addPackages" activeStyle={{ fontWeight: "bold", color: "#91BFFF" }} className="text-decoration-none header-link me-3">Add Packages</NavLink>}
                         <NavLink as={Link} to="/about" activeStyle={{ fontWeight: "bold", color: "#91BFFF" }} className="text-decoration-none header-link me-3">About</NavLink>
 
                     </Nav>

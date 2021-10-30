@@ -11,32 +11,29 @@ const Banner = () => {
                     alt="First slide"
                 />
                 <Carousel.Caption>
-                    <h3>First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    <h1 className='text-warning text-bolder'>Enjoy Your Tour With No Hassle</h1>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src="https://cdn.tourradar.com/s3/content-pages/861/1024x460/aLCT7v.jpeg"
+                    src="https://i.ibb.co/23vPNym/banner2.jpg"
                     alt="Second slide"
                 />
 
                 <Carousel.Caption>
-                    <h3>Second slide label</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <h1 className='text-warning text-bolder'>Enjoy Tour With No Hassle</h1>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src="https://preview.colorlib.com/theme/adventure/img/xslider1.jpg.pagespeed.ic.BNiP8faC2q.webp"
+                    src="https://i.ibb.co/2t1L7F7/banner3.jpg"
                     alt="Third slide"
                 />
 
                 <Carousel.Caption>
-                    <h3>Third slide label</h3>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                    <h1 className='text-warning text-bolder'>Enjoy Tour With No Hassle</h1>
                 </Carousel.Caption>
             </Carousel.Item>
         </Carousel>
