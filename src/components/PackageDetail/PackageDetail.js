@@ -112,7 +112,7 @@ const PackageDetail = () => {
                                 <input className="mb-3" {...register("phone", { required: true })} />
                                 {errors.exampleRequired && <span>This field is required</span>}
 
-                                <button className="mx-auto btn btn-outline-success" type="submit"  >Proceed to Buy</button>
+                                <button className="mx-auto btn btn-outline-success" type="submit"  >Proceed to Book</button>
                             </form>
                         </div >}
 
