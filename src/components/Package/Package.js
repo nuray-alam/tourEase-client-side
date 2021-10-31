@@ -15,7 +15,7 @@ const Package = (props) => {
             <div className="package text-justify py-2 px-3 card h-100 d-flex flex-column justify-content-between">
 
                 <div>
-                    <img src={imgUrl} className="img-fluid mx-auto" alt="" />
+                    <img src={imgUrl} className="img-fluid" alt="" />
                     <h4 className="text-success mt-1">{name}</h4>
                     <p>BDT {price}/-</p>
                     <small><i className="far fa-calendar-alt text-muted"></i> {days} days</small> <small><i className="fas fa-map-marker-alt text-muted"></i> {location}</small>
