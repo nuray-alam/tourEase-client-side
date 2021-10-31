@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Row } from 'react-bootstrap';
+import { Row, Spinner } from 'react-bootstrap';
 import useAuth from '../../hooks/useAuth';
 import Order from '../Order/Order';
 
 const ManageOrders = () => {
     const [orders, setOrders] = useState([]);
     const { user } = useAuth();
-
+const [isLoading, setIsLoading] = useState(true);
 
     // getting all orders
     useEffect(() => {
@@ -14,6 +14,7 @@ const ManageOrders = () => {
             .then(res => res.json())
             .then(data => {
                 setOrders(data);
+                setIsLoading(false);
             })
     }, [])
 
@@ -60,6 +61,16 @@ const ManageOrders = () => {
                 }
             })
 
+    }
+
+
+    if(isLoading){
+        return <div className="d-flex w-75 mx-auto my-5 justify-content-center">
+            <div className="me-3">
+                <Spinner animation="border" variant="primary" />
+            </div>
+            <div><h4>Loading...</h4></div>
+        </div>
     }
     return (
         <div className="packages-section my-5 w-75 mx-auto">

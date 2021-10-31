@@ -5,12 +5,20 @@ import Advantage from '../Advantage/Advantage';
 const Advantages = () => {
 
     const [advantages, setAdvantages] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         fetch("https://polar-mountain-12529.herokuapp.com/advantages")
             .then(res => res.json())
-            .then(data => setAdvantages(data))
+            .then(data => {
+                setAdvantages(data);
+                setIsLoading(false);
+            })
     }, [])
+
+    if (isLoading) {
+        return '';   // already has a spinner in packages 
+    }
 
     return (
         <div className="my-5 py-5 mx-auto w-75">

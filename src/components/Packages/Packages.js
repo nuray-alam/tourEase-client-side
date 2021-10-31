@@ -1,15 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import { Row } from 'react-bootstrap';
+import { Row, Spinner } from 'react-bootstrap';
 import Package from '../Package/Package';
 
 const Packages = () => {
     const [packages, setPackages] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 //getting all the packages
     useEffect(() => {
         fetch('https://polar-mountain-12529.herokuapp.com/packages')
             .then(res => res.json())
-            .then(data => setPackages(data))
+            .then(data => {
+                setPackages(data)
+                setIsLoading(false);
+            })
     }, [])
+
+    if(isLoading){
+        return <div className="d-flex w-75 mx-auto my-5 justify-content-center">
+            <div className="me-3">
+                <Spinner animation="border" variant="primary" />
+            </div>
+            <div><h4>Loading...</h4></div>
+        </div>
+    }
 
 
     return (

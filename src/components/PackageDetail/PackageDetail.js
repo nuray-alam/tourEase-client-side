@@ -19,8 +19,6 @@ const PackageDetail = () => {
             .then(res => res.json())
             .then(data => {
                 setPackageToShow(data);
-                isThePackageAlreadyOrdered = true;
-
             })
     }, [id])
 
@@ -46,8 +44,6 @@ const PackageDetail = () => {
     const onSubmit = data => {
         const order = data;
         order.packageId = id;
-        order.email = user.email;
-        order.name = user.displayName;
         order.status = "pending";
         // positing the data to the server and db
         fetch('https://polar-mountain-12529.herokuapp.com/proceedOrder', {
@@ -94,11 +90,13 @@ const PackageDetail = () => {
                             <h2 className="text-success text-center fw-bolder">Add a New Package</h2>
                             <form onSubmit={handleSubmit(onSubmit)} className="d-flex flex-column">
 
-                                <div>
-                                    <small className="fs-5"> <span className="text-success fw-bold "> Name: </span>{user.displayName}</small>
-                                    <br />
-                                    <small className="fs-5"> <span className="text-success fw-bold "> Email: </span>{user.email}</small>
-                                </div>
+                                <label className="text-success fw-bold fs-5">Full Name:</label>
+                                <input className="mb-3" defaultValue={user.displayName} {...register("name", { required: true })} />
+                                {errors.exampleRequired && <span>This field is required</span>}
+
+                                <label className="text-success fw-bold fs-5">Email:</label>
+                                <input className="mb-3" defaultValue={user.email} {...register("email", { required: true })} />
+                                {errors.exampleRequired && <span>This field is required</span>}
 
                                 <label className="text-success fw-bold fs-5">Address:</label>
                                 <input className="mb-3" {...register("address", { required: true })} />

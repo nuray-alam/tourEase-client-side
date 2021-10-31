@@ -1,11 +1,10 @@
 .header-link {
-    color: white;
-  }
-  
-  .navbar{
-      background-color: #304F47;
-  }
-  .brand-logo{
-    width: 60px;
-  }
-  
+  color: white;
+}
+
+.navbar {
+  background-color: #304f47;
+}
+.brand-logo {
+  width: 30px;
+}
