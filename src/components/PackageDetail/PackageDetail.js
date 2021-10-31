@@ -64,7 +64,7 @@ const PackageDetail = () => {
 
     return (
         <div>
-            <Row xs={1} sm={1} md={2} lg={2}>
+            <Row xs={1} sm={1} md={2} lg={2} className="mx-auto">
                 {/* package detail section */}
                 <Col className="mx-auto">
                     <Card style={{ width: '18rem' }} className="w-75 mx-auto py-3">
