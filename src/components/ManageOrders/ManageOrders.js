@@ -6,19 +6,22 @@ import Order from '../Order/Order';
 const ManageOrders = () => {
     const [orders, setOrders] = useState([]);
     const { user } = useAuth();
+
+
+    // getting all orders
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('https://polar-mountain-12529.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => {
                 setOrders(data);
             })
     }, [])
 
-
+    //handle cancel order button
     const handleCancelOrder = id => {
         let isAgreeToCancel = window.confirm("Are you sure cancel the order?");
         if (isAgreeToCancel === true) {
-            const url = `http://localhost:5000/orders/${id}`;
+            const url = `https://polar-mountain-12529.herokuapp.com/orders/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -34,8 +37,10 @@ const ManageOrders = () => {
 
     }
 
+    // handle approve button
+
     const handleApproveButton = id => {
-        const url = `http://localhost:5000/orders/${id}`;
+        const url = `https://polar-mountain-12529.herokuapp.com/orders/${id}`;
         fetch(url, {
             method: "PUT",
             headers: {
@@ -47,11 +52,11 @@ const ManageOrders = () => {
             .then(result => {
                 if (result.modifiedCount > 0) {
                     alert('Order is approved successfully');
-                   
-                    const updatedOrder = orders.find( ord => ord._id === id);
+
+                    const updatedOrder = orders.find(ord => ord._id === id);
                     updatedOrder.status = 'approved'
-                   const remainingOrders = orders.filter( ord => ord._id !== id);
-                   setOrders([...remainingOrders, updatedOrder])
+                    const remainingOrders = orders.filter(ord => ord._id !== id);
+                    setOrders([...remainingOrders, updatedOrder])
                 }
             })
 

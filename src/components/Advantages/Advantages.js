@@ -7,7 +7,7 @@ const Advantages = () => {
     const [advantages, setAdvantages] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/advantages")
+        fetch("https://polar-mountain-12529.herokuapp.com/advantages")
             .then(res => res.json())
             .then(data => setAdvantages(data))
     }, [])

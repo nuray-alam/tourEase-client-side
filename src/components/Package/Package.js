@@ -11,17 +11,18 @@ const Package = (props) => {
         history.push(url);
     }
     return (
-        <Col className="">
-            <div className="package text-center py-2 px-3 card h-100 d-flex flex-column justify-content-between">
+        <Col>
+            <div className="package text-justify py-2 px-3 card h-100 d-flex flex-column justify-content-between">
 
                 <div>
                     <img src={imgUrl} className="img-fluid" alt="" />
                     <h4 className="text-success mt-1">{name}</h4>
-                    <small>{days} day</small> <small>Location: {location}</small>
+                    <p>BDT {price}/-</p>
+                    <small><i className="far fa-calendar-alt text-muted"></i> {days} days</small> <small><i className="fas fa-map-marker-alt text-muted"></i> {location}</small>
                     <p>{description}</p>
                 </div>
                 <div>
-                    <button onClick={() => handleOrderButton(_id)} className="btn btn-primary">Order Now</button>
+                    <button onClick={() => handleOrderButton(_id)} className="btn btn-outline-success">Book Now</button>
                 </div>
             </div>
         </Col>

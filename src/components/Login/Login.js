@@ -13,6 +13,8 @@ const Login = () => {
 
     const redirect_url = location.state?.from || '/home';
 
+
+    //handle google sign in
     const handleGoogleLogin = () => {
 
         signInUsingGoogle()

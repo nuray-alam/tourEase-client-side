@@ -1,9 +1,9 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
-
+import './Banner.css'
 const Banner = () => {
     return (
-        <Carousel fade>
+        <Carousel fade className="banner">
             <Carousel.Item>
                 <img
                     className="d-block w-100"
@@ -11,7 +11,7 @@ const Banner = () => {
                     alt="First slide"
                 />
                 <Carousel.Caption>
-                    <h1 className='text-warning text-bolder'>Enjoy Your Tour With No Hassle</h1>
+                    <h1 className='text-dark text-bolder'>Enjoy Your Tour With No Hassle</h1>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -22,7 +22,7 @@ const Banner = () => {
                 />
 
                 <Carousel.Caption>
-                    <h1 className='text-warning text-bolder'>Enjoy Tour With No Hassle</h1>
+                    <h1 className='text-white text-bolder'>Enjoy Tour With No Hassle</h1>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -33,7 +33,7 @@ const Banner = () => {
                 />
 
                 <Carousel.Caption>
-                    <h1 className='text-warning text-bolder'>Enjoy Tour With No Hassle</h1>
+                    <h1 className='text-dark text-bolder'>Enjoy Tour With No Hassle</h1>
                 </Carousel.Caption>
             </Carousel.Item>
         </Carousel>

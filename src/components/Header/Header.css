@@ -1,7 +1,11 @@
 .header-link {
     color: white;
   }
+  
   .navbar{
       background-color: #304F47;
+  }
+  .brand-logo{
+    width: 60px;
   }
   

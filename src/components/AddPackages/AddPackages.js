@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 const AddPackages = () => {
-    const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
-    const onSubmit = data => {
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
+    // onSubmit event handler
+    const onSubmit = data => {
         const newPackage = data;
         const url = 'https://polar-mountain-12529.herokuapp.com/addPackage';
-        fetch('http://localhost:5000/addPackage', {
+        fetch(url, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -24,6 +24,7 @@ const AddPackages = () => {
                 }
             })
     };
+
     return (
         <div className="addPackages w-75 mx-auto my-5 border p-5">
             <h2 className="text-success text-center fw-bolder">Add a New Package</h2>

@@ -13,8 +13,9 @@ const PackageDetail = () => {
     const [packageToShow, setPackageToShow] = useState({});
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
+    //getting package detail by id
     useEffect(() => {
-        fetch(`http://localhost:5000/package/detail/${id}`)
+        fetch(`https://polar-mountain-12529.herokuapp.com/package/detail/${id}`)
             .then(res => res.json())
             .then(data => {
                 setPackageToShow(data);
@@ -23,32 +24,33 @@ const PackageDetail = () => {
             })
     }, [id])
 
-
+    // getting the orders
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('https://polar-mountain-12529.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => {
                 setOrders(data);
             })
     }, [])
 
-
+    // getting current user's orders
     const myOrders = orders.filter(order => order.email === user.email);
+    //checking if the current order already ordered
     myOrders.forEach(order => {
-
         if (order.packageId === id) {
             isThePackageAlreadyOrdered = true;
         }
     });
 
+    // handling form submit
     const onSubmit = data => {
         const order = data;
         order.packageId = id;
         order.email = user.email;
         order.name = user.displayName;
         order.status = "pending";
-
-        fetch('http://localhost:5000/proceedOrder', {
+        // positing the data to the server and db
+        fetch('https://polar-mountain-12529.herokuapp.com/proceedOrder', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -67,6 +69,7 @@ const PackageDetail = () => {
     return (
         <div>
             <Row xs={1} sm={1} md={2} lg={2}>
+                {/* package detail section */}
                 <Col className="mx-auto">
                     <Card style={{ width: '18rem' }} className="w-75 mx-auto py-3">
                         <Card.Img variant="top" src={packageToShow?.imgUrl} />
@@ -84,11 +87,18 @@ const PackageDetail = () => {
                     </Card>
                 </Col>
                 <Col className="mx-auto">
+                    {/* conditional rendering for order form */}
                     {isThePackageAlreadyOrdered ?
                         <h2 className="my-5 pd-5 text-success">Congratulations! you Already Ordered this package</h2> :
                         <div className="addPackages w-75 mx-auto my-5 border p-5">
                             <h2 className="text-success text-center fw-bolder">Add a New Package</h2>
                             <form onSubmit={handleSubmit(onSubmit)} className="d-flex flex-column">
+
+                                <div>
+                                    <small className="fs-5"> <span className="text-success fw-bold "> Name: </span>{user.displayName}</small>
+                                    <br />
+                                    <small className="fs-5"> <span className="text-success fw-bold "> Email: </span>{user.email}</small>
+                                </div>
 
                                 <label className="text-success fw-bold fs-5">Address:</label>
                                 <input className="mb-3" {...register("address", { required: true })} />

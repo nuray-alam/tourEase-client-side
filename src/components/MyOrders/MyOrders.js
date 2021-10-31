@@ -6,24 +6,23 @@ import Order from '../Order/Order';
 const MyOrders = () => {
 
     const { user } = useAuth();
+    const [myOrders, setMyOrders] = useState([]);
 
-    // const [orders, setOrders] = useState([]);
-    const [myOrders, setMyOrders] = useState([])
+    //getting orders
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('https://polar-mountain-12529.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => {
-                // setOrders(data);
                 const ordersToAdd = data.filter(order => order.email === user.email)
                 setMyOrders(ordersToAdd)
             })
     }, [user.email])
 
-   
+   // handle order cancel button
     const handleCancelOrder = id => {
         let isAgreeToCancel = window.confirm("Are you sure cancel the order?");
         if (isAgreeToCancel === true) {
-            const url = `http://localhost:5000/orders/${id}`;
+            const url = `https://polar-mountain-12529.herokuapp.com/orders/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
