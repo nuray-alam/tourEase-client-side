@@ -87,7 +87,7 @@ const PackageDetail = () => {
                     {isThePackageAlreadyOrdered ?
                         <h2 className="my-5 pd-5 text-success">Congratulations! you Already Ordered this package</h2> :
                         <div className="addPackages w-75 mx-auto my-5 border p-5">
-                            <h2 className="text-success text-center fw-bolder">Add a New Package</h2>
+                            <h2 className="text-success text-center fw-bolder">Order Process</h2>
                             <form onSubmit={handleSubmit(onSubmit)} className="d-flex flex-column">
 
                                 <label className="text-success fw-bold fs-5">Full Name:</label>
