@@ -11,7 +11,7 @@ const MyOrders = () => {
 
     //getting orders
     useEffect(() => {
-        fetch('https://polar-mountain-12529.herokuapp.com/orders')
+        fetch('https://tourease-server-side.onrender.com/orders')
             .then(res => res.json())
             .then(data => {
                 const ordersToAdd = data.filter(order => order.email === user.email)
@@ -25,7 +25,7 @@ const MyOrders = () => {
     const handleCancelOrder = id => {
         let isAgreeToCancel = window.confirm("Are you sure cancel the order?");
         if (isAgreeToCancel === true) {
-            const url = `https://polar-mountain-12529.herokuapp.com/orders/${id}`;
+            const url = `https://tourease-server-side.onrender.com/orders/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

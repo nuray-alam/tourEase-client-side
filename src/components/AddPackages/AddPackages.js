@@ -6,7 +6,7 @@ const AddPackages = () => {
     // onSubmit event handler
     const onSubmit = data => {
         const newPackage = data;
-        const url = 'https://polar-mountain-12529.herokuapp.com/addPackage';
+        const url = 'https://tourease-server-side.onrender.com/addPackage';
         fetch(url, {
             method: 'POST',
             headers: {

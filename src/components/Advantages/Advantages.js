@@ -8,7 +8,7 @@ const Advantages = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        fetch("https://polar-mountain-12529.herokuapp.com/advantages")
+        fetch("https://tourease-server-side.onrender.com/advantages")
             .then(res => res.json())
             .then(data => {
                 setAdvantages(data);

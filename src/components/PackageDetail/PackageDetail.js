@@ -15,7 +15,7 @@ const PackageDetail = () => {
 
     //getting package detail by id
     useEffect(() => {
-        fetch(`https://polar-mountain-12529.herokuapp.com/package/detail/${id}`)
+        fetch(`https://tourease-server-side.onrender.com/package/detail/${id}`)
             .then(res => res.json())
             .then(data => {
                 setPackageToShow(data);
@@ -24,7 +24,7 @@ const PackageDetail = () => {
 
     // getting the orders
     useEffect(() => {
-        fetch('https://polar-mountain-12529.herokuapp.com/orders')
+        fetch('https://tourease-server-side.onrender.com/orders')
             .then(res => res.json())
             .then(data => {
                 setOrders(data);
@@ -46,7 +46,7 @@ const PackageDetail = () => {
         order.packageId = id;
         order.status = "pending";
         // positing the data to the server and db
-        fetch('https://polar-mountain-12529.herokuapp.com/proceedOrder', {
+        fetch('https://tourease-server-side.onrender.com/proceedOrder', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -7,7 +7,7 @@ const Packages = () => {
     const [isLoading, setIsLoading] = useState(true);
 //getting all the packages
     useEffect(() => {
-        fetch('https://polar-mountain-12529.herokuapp.com/packages')
+        fetch('https://tourease-server-side.onrender.com/packages')
             .then(res => res.json())
             .then(data => {
                 setPackages(data)

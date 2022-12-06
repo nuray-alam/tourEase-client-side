@@ -18,7 +18,7 @@ const Order = (props) => {
 
     // getting order's package full detail
     useEffect(() => {
-        fetch(`https://polar-mountain-12529.herokuapp.com/package/detail/${packageId}`)
+        fetch(`https://tourease-server-side.onrender.com/package/detail/${packageId}`)
             .then(res => res.json())
             .then(data => {
                 setPackageToShow(data);

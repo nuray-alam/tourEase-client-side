@@ -4,11 +4,11 @@ import Review from '../Review/Review';
 
 const Reviews = () => {
     const [reviews, setReviews] = useState([]);
-    const [isLoading, setIsLoading] =useState(true);
+    const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
-        fetch("https://polar-mountain-12529.herokuapp.com/reviews")
+        fetch("https://tourease-server-side.onrender.com/reviews")
             .then(res => res.json())
-            .then(data =>{ 
+            .then(data => {
                 setReviews(data);
                 setIsLoading(false);
             })

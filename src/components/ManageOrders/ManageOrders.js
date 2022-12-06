@@ -10,7 +10,7 @@ const [isLoading, setIsLoading] = useState(true);
 
     // getting all orders
     useEffect(() => {
-        fetch('https://polar-mountain-12529.herokuapp.com/orders')
+        fetch('https://tourease-server-side.onrender.com/orders')
             .then(res => res.json())
             .then(data => {
                 setOrders(data);
@@ -22,7 +22,7 @@ const [isLoading, setIsLoading] = useState(true);
     const handleCancelOrder = id => {
         let isAgreeToCancel = window.confirm("Are you sure cancel the order?");
         if (isAgreeToCancel === true) {
-            const url = `https://polar-mountain-12529.herokuapp.com/orders/${id}`;
+            const url = `https://tourease-server-side.onrender.com/orders/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -41,7 +41,7 @@ const [isLoading, setIsLoading] = useState(true);
     // handle approve button
 
     const handleApproveButton = id => {
-        const url = `https://polar-mountain-12529.herokuapp.com/orders/${id}`;
+        const url = `https://tourease-server-side.onrender.com/orders/${id}`;
         fetch(url, {
             method: "PUT",
             headers: {
